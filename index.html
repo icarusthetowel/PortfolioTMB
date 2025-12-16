@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trevor Matthias Bercich</title>
+    <!-- 1. Tailwind via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav">
+            <a class="brand" href="#top">Trevor Matthias Bercich</a>
+            <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+                <a href="#resume">Resume</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="section hero">
+            <div class="container">
+                <p class="eyebrow animate-sequence-1">Hello I'm</p>
+                <h1 class="animate-sequence-2">Trevor Matthias Bercich</h1>
+                <p class="lede animate-sequence-3">Full-Stack Developer</p>
+                <div class="cta-group">
+                    <a class="button" href="#projects">View Projects</a>
+                    <a class="button ghost" href="#contact">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container split">
+                <div>
+                    <h2>About</h2>
+                    <p>Write a concise paragraph describing your background, domain focus, and the value you bring to projects.</p>
+                    <p>Highlight a few technologies you enjoy using and what types of challenges energize you.</p>
+                </div>
+                <ul class="tag-list">
+                    <li>Python</li>
+                    <li>AI/ML</li>
+                    <li>HTML</li>
+                    <li>CSS</li>
+                    <li>JavaScript</li>
+                    <li>React</li>
+                    <li>React Native</li>
+                    <li>Node.js</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Featured Projects</h2>
+                <div class="cards">
+                    <article class="card">
+                        <h3>Project One</h3>
+                        <p>Short description of the problem, your approach, and the impact/results.</p>
+                        <a class="text-link" href="#">View case study</a>
+                    </article>
+                    <article class="card">
+                        <h3>Project Two</h3>
+                        <p>Highlight your role, the stack, and what made the project interesting to you.</p>
+                        <a class="text-link" href="#">View repository</a>
+                    </article>
+                    <article class="card">
+                        <h3>Project Three</h3>
+                        <p>Share a quick win, such as performance gains, UX improvements, or automation.</p>
+                        <a class="text-link" href="#">View demo</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact</h2>
+                <p>Invite collaboration and leave a preferred contact method.</p>
+                <form class="contact-form">
+                    <label>
+                        Name
+                        <input type="text" name="name" placeholder="Jane Doe" required>
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" placeholder="jane@example.com" required>
+                    </label>
+                    <label>
+                        Message
+                        <textarea name="message" rows="4" placeholder="How can we collaborate?" required></textarea>
+                    </label>
+                    <button type="submit">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>© <span id="current-year"></span> Trevor Matthias Bercich. Built with curiosity, care, and a love for development.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
