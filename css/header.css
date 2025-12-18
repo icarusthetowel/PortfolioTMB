@@ -1,0 +1,38 @@
+/* Header & Navigation */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(248, 250, 252, 0.95);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(6px);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 4rem;
+    gap: 1rem;
+}
+
+.brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.menu-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+}
+
+.nav-links {
+    display: flex;
+    gap: 1.5rem;
+    font-weight: 600;
+}
