@@ -1,0 +1,10 @@
+/* CSS Variables & Root Configuration */
+:root {
+    --bg: #f8fafc;
+    --ink: #0f172a;
+    --muted: #475569;
+    --accent: #2563eb;
+    --accent-ink: #f8fafc;
+    --border: #cbd5f5;
+    font-size: 16px;
+}

@@ -1,0 +1,19 @@
+/* Layout Utilities */
+.container {
+    width: 100%;
+    max-width: 64rem;
+    margin: 0 auto;
+    padding-left: clamp(1.25rem, 5vw, 2.5rem);
+    padding-right: clamp(1.25rem, 5vw, 2.5rem);
+}
+
+.section {
+    padding: clamp(3rem, 8vw, 4.5rem) 0;
+}
+
+.split {
+    display: grid;
+    gap: 2rem;
+    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+}
