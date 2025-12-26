@@ -1,0 +1,195 @@
+/* Tech Ticker: Scrolling animation of tech stack */
+
+/* Container and layout */
+.tech-ticker-section {
+    padding: 3rem 0;
+    background: linear-gradient(180deg, transparent, rgba(37, 99, 235, 0.03));
+}
+
+.tech-ticker {
+    /* Fixed height prevents layout shift */
+    height: 5.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Fade mask effect on both sides */
+.tech-ticker::before,
+.tech-ticker::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 4rem;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Left fade: black to transparent from left */
+.tech-ticker::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg) 0%, transparent 100%);
+}
+
+/* Right fade: transparent to black from right */
+.tech-ticker::after {
+    right: 0;
+    background: linear-gradient(90deg, transparent 0%, var(--bg) 100%);
+}
+
+/* The scrolling track - duplicated items for seamless loop */
+.tech-ticker-track {
+    display: flex;
+    gap: 2rem;
+    padding: 1rem 0;
+    align-items: center;
+    justify-content: flex-start;
+    width: fit-content;
+    margin: 0 auto;
+    /* Animation: slide from right to left continuously */
+    animation: scroll-left 30s linear infinite;
+    /* Prevent flickering on loop */
+    will-change: transform;
+}
+
+/* Each tech item: icon + label */
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+    color: var(--muted);
+    transition: color 0.2s ease;
+}
+
+.tech-item:hover {
+    color: var(--accent);
+}
+
+/* Tech icon: uniform size, slightly transparent, accent color */
+.tech-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--accent);
+    opacity: 0.75;
+    transition: opacity 0.2s ease;
+}
+
+.tech-item:hover .tech-icon {
+    opacity: 1;
+}
+
+/* Label text styling */
+.tech-item span {
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+/* Animation: continuous left scroll (marquee effect) */
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Move by exactly 50% (half the track) for seamless loop */
+        transform: translateX(-50%);
+    }
+}
+
+/* Reduced motion: disable animation, show static scrollable row */
+@media (prefers-reduced-motion: reduce) {
+    .tech-ticker-section {
+        padding: 2rem 0;
+    }
+
+    .tech-ticker {
+        overflow-x: auto;
+        overflow-y: hidden;
+        height: auto;
+        scroll-behavior: smooth;
+    }
+
+    .tech-ticker::before,
+    .tech-ticker::after {
+        display: none;
+    }
+
+    .tech-ticker-track {
+        animation: none;
+        padding: 1rem;
+    }
+
+    /* Webkit scrollbar styling for better appearance */
+    .tech-ticker::-webkit-scrollbar {
+        height: 4px;
+    }
+
+    .tech-ticker::-webkit-scrollbar-track {
+        background: rgba(37, 99, 235, 0.05);
+        border-radius: 2px;
+    }
+
+    .tech-ticker::-webkit-scrollbar-thumb {
+        background: var(--accent);
+        border-radius: 2px;
+    }
+
+    .tech-ticker::-webkit-scrollbar-thumb:hover {
+        background: rgba(37, 99, 235, 0.8);
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .tech-ticker-section {
+        padding: 2rem 0;
+    }
+
+    .tech-ticker {
+        height: 5rem;
+    }
+
+    .tech-ticker-track {
+        gap: 1.5rem;
+        padding: 1rem 0;
+        /* Faster animation on mobile */
+        animation: scroll-left 25s linear infinite;
+    }
+
+    .tech-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .tech-item span {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-ticker {
+        height: 4.5rem;
+    }
+
+    .tech-ticker::before,
+    .tech-ticker::after {
+        width: 2rem;
+    }
+
+    .tech-ticker-track {
+        gap: 1rem;
+        padding: 0.75rem 2rem;
+    }
+
+    .tech-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .tech-item span {
+        font-size: 0.75rem;
+    }
+}
