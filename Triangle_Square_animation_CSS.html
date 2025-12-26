@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Triangle ⇄ Square (Smooth Loop)</title>
+  <style>
+    :root {
+      --size: 220px;
+      --bg: #0b0f17;
+      --shape: #33d17a;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: radial-gradient(1200px 800px at 50% 30%, #111a2c 0%, var(--bg) 60%, #070a10 100%);
+      display: grid;
+      place-items: center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+
+    /* container is just for centering + subtle framing */
+    .wrap {
+      width: calc(var(--size) + 56px);
+      height: calc(var(--size) + 56px);
+      display: grid;
+      place-items: center;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      box-shadow:
+        0 18px 60px rgba(0,0,0,0.55),
+        inset 0 1px 0 rgba(255,255,255,0.04);
+    }
+
+    .shape {
+      width: var(--size);
+      height: var(--size);
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0) 45%),
+                  var(--shape);
+      border-radius: 18px; /* only affects the square phase visually */
+      box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.55),
+        0 0 0 1px rgba(255,255,255,0.08) inset;
+      transform: translateZ(0); /* nudge compositor */
+      will-change: clip-path, transform, filter;
+      animation: morph 2.8s cubic-bezier(0.37, 0, 0.63, 1) infinite alternate;
+    }
+
+    /* IMPORTANT:
+       Clip-path polygon morphs smoothly when both keyframes use the same number of points.
+       Triangle here is 4 points with the last point duplicated. */
+    @keyframes morph {
+      0% {
+        clip-path: polygon(
+          50% 8%,
+          92% 90%,
+          8% 90%,
+          8% 90%
+        );
+        transform: scale(0.98);
+        filter: brightness(1) saturate(1.02);
+      }
+
+      55% {
+        transform: scale(1.0);
+      }
+
+      100% {
+        clip-path: polygon(
+          12% 12%,
+          88% 12%,
+          88% 88%,
+          12% 88%
+        );
+        transform: scale(1.02);
+        filter: brightness(1.03) saturate(1.06);
+      }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .shape { animation: none; clip-path: polygon(12% 12%, 88% 12%, 88% 88%, 12% 88%); }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap" aria-hidden="true">
+    <div class="shape"></div>
+  </div>
+</body>
+</html>

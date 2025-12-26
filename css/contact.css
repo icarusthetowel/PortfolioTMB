@@ -29,4 +29,10 @@
     background: var(--accent);
     color: var(--accent-ink);
     font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.2);
 }

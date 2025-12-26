@@ -24,3 +24,12 @@ img {
     display: block;
     max-width: 100%;
 }
+
+/* Smooth scroll and offset for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+section[id] {
+    scroll-margin-top: 5rem;
+}
