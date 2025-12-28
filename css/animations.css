@@ -55,3 +55,33 @@
     animation-delay: 1.8s;
     opacity: 0;
 }
+
+/* Rotating Subtitle Text */
+.rotating-text {
+    display: inline-block;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Fade out state: slide up and fade */
+.rotating-text.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+/* Fade in state: slide up from below */
+.rotating-text.fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    .rotating-text {
+        transition: opacity 0.2s ease;
+    }
+    
+    .rotating-text.fade-out,
+    .rotating-text.fade-in {
+        transform: none;
+    }
+}
