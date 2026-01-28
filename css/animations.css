@@ -4,18 +4,22 @@
         opacity: 0;
         transform: scale(0.95);
     }
+
     30% {
         opacity: 1;
         transform: scale(1.08);
     }
+
     60% {
         opacity: 1;
         transform: scale(1.08);
     }
+
     85% {
         opacity: 1;
         transform: scale(1.02);
     }
+
     100% {
         opacity: 1;
         transform: scale(1);
@@ -27,6 +31,7 @@
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -34,25 +39,38 @@
 }
 
 /* Hero Animation Sequence Classes */
+/* Step 1: HELLO */
 .animate-sequence-1 {
-    animation: heroSequence 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation: heroSequence 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    opacity: 0;
 }
 
+/* Step 2: I'M A FULL STACK DEVELOPER */
 .animate-sequence-2 {
-    animation: heroSequence 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 0.6s;
+    animation: heroSequence 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 0.8s;
     opacity: 0;
 }
 
+/* Step 3: Trevor Matthias Bercich */
 .animate-sequence-3 {
-    animation: heroSequence 1.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 1.2s;
+    animation: heroSequence 1.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    animation-delay: 1.6s;
     opacity: 0;
+}
+
+/* Title line - initially hidden, revealed by JS after headshot appears */
+.hero-title-line {
+    opacity: 0;
+}
+
+.hero-title-line.hero-title-visible {
+    animation: fadeInUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
 }
 
 .cta-group {
     animation: fadeInUp 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-    animation-delay: 1.8s;
+    animation-delay: 2.4s;
     opacity: 0;
 }
 
@@ -79,7 +97,7 @@
     .rotating-text {
         transition: opacity 0.2s ease;
     }
-    
+
     .rotating-text.fade-out,
     .rotating-text.fade-in {
         transform: none;
