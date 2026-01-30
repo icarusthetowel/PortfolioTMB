@@ -57,6 +57,10 @@
         display: flex;
     }
 
+    .hero {
+        padding-bottom: clamp(7rem, 22vh, 12rem);
+    }
+
     /* Hero layout adjustments for tablet */
     .hero-container {
         flex-direction: column;

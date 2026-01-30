@@ -65,14 +65,14 @@
 /* Settled state: text slides left, headshot slides right with subtle scaling */
 .hero-container.hero-settled .hero-text-group {
     /* Keep text center-aligned to avoid layout reflow jump */
-    transform: translateX(clamp(-180px, -20vw, -260px)) scale(1);
+    transform: translateX(clamp(-220px, -24vw, -320px)) scale(1);
 }
 
 .hero-container.hero-settled .hero-headshot-wrapper {
     /* ABSOLUTE POSITIONING RETAINED to prevent layout reflow jump */
 
     /* Add slight rotation for organic placement feel */
-    transform: translateX(clamp(180px, 20vw, 260px)) scale(1.02) rotate(2deg);
+    transform: translateX(clamp(220px, 24vw, 320px)) scale(1.02) rotate(2deg);
 }
 
 /* Add subtle hover lift to headshot after settling */
