@@ -36,6 +36,10 @@
     .cards {
         gap: 2rem;
     }
+
+    .hero-container.hero-settled .hero-text-group {
+        padding-right: clamp(0.75rem, 2.5vw, 2rem);
+    }
 }
 
 /* Tablet and Mobile - max-width: 768px */
@@ -59,11 +63,18 @@
 
     .hero {
         padding-bottom: clamp(7rem, 22vh, 12rem);
+        min-height: 100svh;
     }
 
     /* Hero layout adjustments for tablet */
     .hero-container {
         flex-direction: column;
+    }
+
+    .cta-group {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.875rem;
     }
 
     /* Keep absolute positioning on mobile too for smooth animation */
@@ -78,9 +89,14 @@
 
     /* Mobile separation: headshot goes UP, text goes DOWN */
     .hero-container.hero-settled .hero-text-group {
-        transform: translateX(0) translateY(clamp(100px, 15vh, 150px)) scale(1);
+        transform: translateX(0) translateY(0) scale(1);
         align-items: center;
         text-align: center;
+        padding-bottom: clamp(100px, 15vh, 150px);
+    }
+
+    .hero-container.hero-settled .hero-text-group-anim {
+        transform: translateX(0) translateY(clamp(100px, 15vh, 150px)) scale(1);
     }
 
     .hero-container.hero-settled .hero-headshot-wrapper {
@@ -165,9 +181,9 @@
     grid-template-columns: 1fr;
 }
 
-.cards {
-    grid-template-columns: 1fr;
-}
+    .cards {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* Mobile - max-width: 640px */
@@ -204,27 +220,6 @@
     .hero h1,
     .hero-intro-name {
         font-size: clamp(2rem, 8vw, 3rem);
-    }
-
-    /* Hero headshot mobile adjustments */
-    .hero-container {
-        flex-direction: column;
-    }
-
-    /* Keep absolute positioning for smooth animation */
-    .hero-headshot-wrapper {
-        position: absolute;
-    }
-
-    /* Mobile separation: headshot goes UP, text goes DOWN */
-    .hero-container.hero-settled .hero-text-group {
-        transform: translateX(0) translateY(clamp(100px, 15vh, 150px)) scale(1);
-        align-items: center;
-        text-align: center;
-    }
-
-    .hero-container.hero-settled .hero-headshot-wrapper {
-        transform: translateY(clamp(-130px, -20vh, -180px)) scale(1.02);
     }
 
     .hero-headshot {
