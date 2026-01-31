@@ -1,4 +1,4 @@
-// Scroll to top on page refresh
+yy// Scroll to top on page refresh
 if (history.scrollRestoration) {
     history.scrollRestoration = "manual";
 }

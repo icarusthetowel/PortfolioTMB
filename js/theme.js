@@ -3,14 +3,14 @@ const themeToggle = document.querySelector(".theme-toggle");
 const themeToggleMobile = document.querySelector(".theme-toggle-mobile");
 const htmlElement = document.documentElement;
 
-// Check for saved theme preference or system preference
+// Check for saved theme preference or default to dark
 function getPreferredTheme() {
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
         return savedTheme;
     }
-    // Check system preference
-    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    // Default to dark theme
+    return "dark";
 }
 
 // Apply theme
